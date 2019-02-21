@@ -8,7 +8,7 @@ import './App.css';
 
 const localURL = 'http://localhost:4000/graphql';
 const productionURL =
-  'https://co2-emissions-backend-kuorikoski.herokuapp.com/graphql';
+  'https://co2-emissions-back-kuorikoski.herokuapp.com/graphql';
 const backendURL =
   process.env.NODE_ENV === 'production' ? productionURL : localURL;
 
