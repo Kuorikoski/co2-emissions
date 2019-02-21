@@ -1,33 +1,33 @@
-.App {
-  text-align: center;
+* {
+  font-family: Playfair Display, Georgia, Times New Roman, serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+#app {
+  margin-bottom: 60px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #002147;
+  color: #007bff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p.jk {
+  padding-top: 8px;
+}
+
+h1.display-1 {
+  color: #ffffff;
+}
+
+p.lead {
+  color: #6e87a2;
 }

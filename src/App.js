@@ -1,26 +1,60 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
+import HeroLazy from './components/HeroLazy';
+import Countries from './components/Countries';
+import Results from './components/Results';
 import './App.css';
 
+const localURL = 'http://localhost:4000/graphql';
+const productionURL =
+  'https://co2-emissions-backend-kuorikoski.herokuapp.com/graphql';
+const backendURL =
+  process.env.NODE_ENV === 'production' ? productionURL : localURL;
+
+const client = new ApolloClient({
+  uri: backendURL
+});
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChangedCountries = this.handleChangedCountries.bind(this);
+    this.state = {
+      selectedCountries: []
+    };
+  }
+
+  handleChangedCountries(value) {
+    this.setState({ selectedCountries: value });
+  }
+
   render() {
+    const { selectedCountries } = this.state;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <ApolloProvider client={client}>
+        <div id="app" className="text-center">
+          <HeroLazy toggleCountries={this.handleChangedCountries} />
+          <Countries
+            selectedCountries={selectedCountries}
+            onCountriesChanged={this.handleChangedCountries}
+          />
+          <Results selectedCountries={selectedCountries} />
+          <footer className="">
+            <div className="container">
+              <p className="jk">
+                Julius Kuorikoski
+                <span className="ml-3">
+                  <a href="https://github.com/Kuorikoski">
+                    <i class="fab fa-github fa-2x" />
+                  </a>
+                </span>
+              </p>
+            </div>
+          </footer>
+        </div>
+      </ApolloProvider>
     );
   }
 }
