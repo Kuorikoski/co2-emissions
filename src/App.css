@@ -31,3 +31,13 @@ h1.display-1 {
 p.lead {
   color: #6e87a2;
 }
+
+@media only screen and (max-width: 600px) {
+  h1.display-1 {
+    font-size: 40px;
+  }
+
+  p.lead {
+    font-size: 15px;
+  }
+}

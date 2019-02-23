@@ -19,7 +19,7 @@ class Presets extends Component {
     ));
     return (
       <Fragment>
-        <p>{buttons}</p>
+        <p className="presetButtons">{buttons}</p>
       </Fragment>
     );
   }

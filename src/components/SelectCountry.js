@@ -35,7 +35,7 @@ class CountrySelector extends Component {
           });
 
           return (
-            <Form>
+            <Form className="form-group">
               <FormGroup>
                 <span id="country-selector" className="sr-only">
                   Select available countries
